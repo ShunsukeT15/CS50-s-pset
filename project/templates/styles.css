@@ -1,0 +1,51 @@
+
+body {
+    background-color:#9cd9ac;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0;
+    text-align: left;
+    background-image: url(nihonchizu.jpg)
+}
+
+h1 {
+    font-family: 'MS Mincho';
+    font-size: 100px;
+}
+
+h2 {
+    font-family: 'Yu Mincho';
+    font-size: 50px;
+    text-align:left;
+}
+
+h3 {
+    font-family: 'Yu Mincho';
+    font-size: 30px;
+    text-align:left;
+}
+
+h4 {
+  text-align: center;
+}
+
+#saikoro {
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  font-size: 100px;
+  border-radius: 10px;
+  background: #eee;
+}
+
+main
+{
+    /* Scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* Center contents */
+    text-align: center;
+}
+

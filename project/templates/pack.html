@@ -1,0 +1,38 @@
+<html>
+<head>
+<script type="text/javascript" language="JavaScript">
+function bar() {
+    // a 要素の作成と属性の指定
+    var newAnchor = document.createElement("a");
+    var newTxt = document.createTextNode( document.getElementById("favtext").value );
+    newAnchor.appendChild( newTxt );
+    // li 要素の作成
+    var newLi = document.createElement("li");
+    newLi.appendChild ( newAnchor );
+
+    // リストに追加
+    var checkBox = document.createElement('input');
+    checkBox.setAttribute('type','checkbox');
+
+    var list = document.getElementById("adList");
+    list.appendChild( checkBox );
+    list.appendChild( newLi );
+
+}
+
+
+</script>
+</head>
+<div class="packList"></div>
+<body>
+<p>
+持ち物の追加:<br/>
+<input type="text" id="favtext" /><br/>
+<input type="button"  value="追加" onclick="bar();" />
+<ul id="adList">
+</ul>
+</p>
+
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+body {
+    background: linear-gradient(#05FBFF, #1E00FF);
+    color: #000000;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+    text-align: left;
+}
+
+
+.under-area {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    overflow: hidden;
+}
+
+#cherry {
+    background:  linear-gradient(-45deg, rgba(246, 255, 0, .8), rgba(255, 0, 161, .8));
+}
+
+
+
+#gradient {
+    background: #a2b2ff;
+    background: -webkit-linear-gradient(90deg, #fff 1%, #a2b2ff);
+    background: -moz-linear-gradient(90deg, #fff 1%, #a2b2ff);
+    background: -o-linear-gradient(90deg, #fff 1%, #a2b2ff);
+    background: linear-gradient(90deg, #fff 1%, #a2b2ff);
+}
+
+
+
+h1 {
+    font-family: 'MS Mincho';
+    font-size: 50px;
+}
+
+h2 {
+    font-family: 'Yu Mincho';
+    font-size: 20px;
+}
+
+.profile-image-area img {
+    width: 40%;
+    transform: translateX(0%);
+
+}
+
+
+.sns-icon-area {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 30px;
+    text-align: center;
+    margin: 5px;
+}
+
+.note-icon {
+  position: relative;
+  width: 50px;
+  height: 50px;
+

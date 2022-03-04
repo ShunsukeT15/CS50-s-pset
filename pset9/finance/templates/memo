@@ -1,0 +1,56 @@
+    if (request.method =="POST"):
+       find_missing_errors = is_provided("symbol") or is_provided("shares")
+       if find_missing_errors:
+           return find_missing_errors
+       elif not request.form.get("shares").isdigit():
+           return apology("Invalid number of shares.")
+       symbol = request.form
+       lookup()
+       return apology("Invalid symbol.")
+   else:
+       return render_template("buy.html")
+
+
+
+
+CREATE TABLE transactions (
+id INTEGER PRIMARY AUTOINCREMENT,
+user_id INTEGER NOT NULL,
+name TEXT NOT NULL,
+shares INTEGER NOT NULL,
+price NUMERIC NOT NULL,
+type TEXT NOT NULL,
+symbol TEXT NOT NULL,
+time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+
+if request.method == "POST":
+        user_id = session["user_id"]
+        symbol = request.form.get("symbol")
+        shares = int(request.form.get("shares"))
+
+        if shares <= 0:
+            return apology("Shares must be a positive number.")
+
+        item_price = lookup(symbol)["price"]
+        item_name = lookup(symbol)["name"]
+        price = item_price * shares
+
+        shares_owed = db.execute("SELECT shares FROM transactions WHERE user_id = ? AND symbol = ? GROUP BY symbol",
+        user_id, symbol)[0]["shares"]
+
+        if shares_owed < shares:
+            return apology("You do not have enough shares.")
+
+        current_cash = db.execute("SELECT cash FROM users WHERE id = ?", user_id)[0]["cash"]
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", (current_cash + price), user_id)
+        db.execute("INSERT INTO transactions (user_id, name, shares, price, type, symbol) VALUES (? ? ? ? ? ?",
+        user_id, item_name, -shares, item_ price, "sell", symbol)
+
+        return redirect("/")
+    else:
+        user_id = session["useer_id"]
+        symbols = db.execute("SELECT symbol FROM transactions WHERE user_id = ? GROUP BY symbol", user_id)
+        return render_template("sell.html", symbols=symbols)

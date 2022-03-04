@@ -1,0 +1,14 @@
+{% extends "home.html" %}
+
+{% block body %}
+<form action="/" method="POST">
+    <label for="due">日付（予定日）</label>
+    <input type="date" name="due" required>
+    <label for="title">タイトル</label>
+    <input type="text" name="title">
+    <label for="detail">Detail</label>
+    <input type="text" name="detail">
+    <input type="submit" value="登録">
+
+</form>
+{% endblock %}
